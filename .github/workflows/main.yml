@@ -30,7 +30,7 @@ jobs:
         run: dotnet publish MyCleaner.csproj -c Release -r win-x64 --self-contained true -p:Version=${{ inputs.version }} -o publish
 
       - name: Build installer
-        run: '"C:\Program Files (x86)\Inno Setup 6\ISCC.exe" /DAppVersion=${{ inputs.version }} installer\setup.iss'
+           run: '& "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" "/DAppVersion=${{ inputs.version }}" installer\setup.iss'
 
       - name: Update version.json, tag and push
         shell: pwsh
